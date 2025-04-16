@@ -112,7 +112,18 @@ int main()
 
 void reverse(Queue *q)
 {
-/* add your code here */
+	Stack *s = malloc(sizeof(Stack));
+	while (!isEmptyQueue(q)){
+		int value = dequeue(q);
+		push(s, value);
+	}
+	while (!isEmptyStack(s)){
+		int value = pop(s);
+		enqueue(q, value);
+	}
+
+	free(s);
+	return;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
